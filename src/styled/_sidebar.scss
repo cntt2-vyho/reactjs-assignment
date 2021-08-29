@@ -1,0 +1,159 @@
+.sidebar {
+    position: fixed;
+    overflow-y: auto;
+    width: 20%;
+    top: 60px;
+    float: left;
+    left: 0;
+    bottom: 0;
+    border-right: 1px solid #eee;
+    background: #fff;
+    padding: 1rem;
+    .facet-wrapper {
+        padding-bottom: 12px;
+        border-bottom: solid 1px #eee;
+        margin-bottom: 12px;
+        font-size: 0.87em;
+    }
+    #clear-all {
+        display: block;
+        margin-bottom: 16px;
+        .ais-root.ais-clear-all.btn.btn-block.btn-default {
+            display: block;
+            width: 100%;
+            font-size: 13px;
+            border: solid 1px #000;
+            transition: all linear 0.3s;
+            background-color: transparent;
+            cursor: pointer;
+            font-weight: bolder;
+            &:hover {
+                background-color: #f2f2f2;
+                color: #b32500;
+                transition: all linear 0.3s;
+            }
+        }
+    }
+    .facet-wrapper {
+        .facet {
+            margin-bottom: 16px;
+        }
+        #brands,
+        #types {
+            .ais-root.ais-refinement-list {
+                .ais-body.ais-refinement-list--body {
+                    form.searchbox {
+                        padding: 10px 0;
+                        .sbx-sffv__wrapper {
+                            position: relative;
+                            height: 30px;
+                            input {
+                                height: 30px;
+                                border: none;
+                                border: solid 1px #000;
+                                padding: 0 30px;
+                                outline: none;
+                                width: 100%;
+                            }
+                            .sbx-sffv__submit {
+                                height: 30px;
+                                border: none;
+                                background: transparent;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 30px;
+                            }
+                            .sbx-sffv__reset {
+                                height: 30px;
+                                border: none;
+                                background: transparent;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                width: 30px;
+                            }
+                        }
+                    }
+                    .ais-refinement-list--item {
+                        .facet-item {
+                            label.facet-count {
+                                color: #000;
+                                cursor: pointer;
+                                span {
+                                    margin-left: 4px;
+                                    color: #888;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #prices {
+            .ais-root.ais-price-ranges {
+                .ais-body.ais-price-ranges--body {
+                    .ais-price-ranges--list.nav-list {
+                        .ais-price-ranges--item {
+                            cursor: pointer;
+                            &:hover {
+                                color: #b32500;
+                            }
+                        }
+                        .ais-price-ranges--item.ais-price-ranges--item--item__active {
+                            font-weight: bolder;
+                        }
+                    }
+                    form.ais-price-ranges--form {
+                        display: flex;
+                        align-items: center;
+                        label {
+                            margin: 0;
+                            padding: 0;
+                            margin-right: 0.5rem;
+                            display: flex;
+                            align-items: center;
+                        }
+                        input {
+                            width: 80px;
+                            height: 30px;
+                            border: none;
+                            border: solid 1px #000;
+                            outline: none;
+                            display: inline-block;
+                            border-radius: 2px;
+                            font-weight: 400;
+                        }
+                        input::-webkit-outer-spin-button,
+                        input::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+
+                        /* Firefox */
+                        input[type="number"] {
+                            -moz-appearance: textfield;
+                        }
+                    }
+                }
+            }
+        }
+        #rating {
+            .ais-star-rating--item.ais-star-rating--item__active {
+                font-weight: bolder;
+            }
+            .ais-star-rating--item {
+                cursor: pointer;
+                &:hover {
+                    color: #b32500;
+                }
+            }
+        }
+    }
+    .thank-you {
+        text-align: center;
+        font-size: 0.8em;
+        padding: 10px;
+    }
+}

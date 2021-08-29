@@ -1,0 +1,269 @@
+@import "./header";
+@import "./sidebar";
+@import "./content";
+
+* {
+    box-sizing: border-box;
+    a {
+        text-decoration: none;
+        // color: black;
+        &:hover {
+            text-decoration: none;
+            // color: #b32500;
+        }
+    }
+    li {
+        list-style: none;
+    }
+    .content {
+        overflow: hidden;
+    }
+}
+
+.sidebar .facet-title {
+    font-weight: 700;
+    margin: 4px 0;
+}
+
+.sidebar .facet-item,
+.sidebar a {
+    color: #000;
+}
+
+.sidebar .facet-item:hover,
+.sidebar a:hover {
+    color: #b32500;
+    text-decoration: none;
+}
+
+.ais-hierarchical-menu--list {
+    padding-left: 20px;
+}
+
+.sidebar .facet-item.active,
+.sidebar a.active {
+    font-weight: 700;
+}
+
+.sidebar .facet-item input,
+.sidebar a input {
+    margin-right: 4px;
+}
+
+.sidebar .facet-name {
+    width: 100%;
+    white-space: nowrap;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.sidebar #colors:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.sidebar .facet-color {
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+    margin: 0 6px 6px;
+    display: block;
+    overflow: hidden;
+    float: left;
+}
+
+.sidebar .facet-color.checked {
+    box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+.sidebar .facet-color[data-facet-value="White"] {
+    background-color: #fff;
+    box-shadow: inset 0 0 0 1px #ccc;
+}
+
+.sidebar .facet-color[data-facet-value="White"].checked {
+    box-shadow: inset 0 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .facet-color[data-facet-value="Black"] {
+    background-color: #000;
+}
+
+.sidebar .facet-color[data-facet-value="Black-brown"] {
+    background-color: #382919;
+}
+
+.sidebar .facet-color[data-facet-value="Pink"] {
+    background-color: #c0116d;
+}
+
+.sidebar .facet-color[data-facet-value="Gray"] {
+    background-color: #6f6e6c;
+}
+
+.sidebar .facet-color[data-facet-value="Blue"] {
+    background-color: #5182a1;
+}
+
+.sidebar .facet-color[data-facet-value="Green"] {
+    background-color: #1e9c5e;
+}
+
+.sidebar .facet-color[data-facet-value="Brown"] {
+    background-color: #7b6a63;
+}
+
+.sidebar .facet-color[data-facet-value="Red"] {
+    background-color: #bc1c1a;
+}
+
+.sidebar .facet-color[data-facet-value="Dark gray"] {
+    background-color: #444348;
+}
+
+.sidebar .facet-color[data-facet-value="Silver color"] {
+    background-color: #aaaaa8;
+}
+
+.sidebar .facet-color[data-facet-value="Light brown"] {
+    background-color: #c19a6e;
+}
+
+.sidebar .facet-color[data-facet-value="Black-brown stain"] {
+    background-color: #4b4640;
+}
+
+.sidebar .facet-color[data-facet-value="Off-white"] {
+    background-color: #d0c8b4;
+}
+
+.sidebar .facet-color[data-facet-value="Beige"] {
+    background-color: #c9b8a3;
+}
+
+.sidebar .facet-color[data-facet-value="Light green"] {
+    background-color: #abbd9b;
+}
+
+.sidebar .facet-color[data-facet-value="White stain"] {
+    background-color: #e4e1dc;
+}
+
+.sidebar .facet-color[data-facet-value="Turquoise"] {
+    background-color: #46bcc9;
+}
+
+.sidebar .facet-color[data-facet-value="Birch effect"] {
+    background-color: #cbbfa4;
+}
+
+.sidebar .facet-color[data-facet-value="Yellow"] {
+    background-color: #f5e500;
+}
+
+.sidebar .facet-color[data-facet-value="Dark blue"] {
+    background-color: #374063;
+}
+
+.sidebar .facet-color[data-facet-value="Galvanized"] {
+    background-color: #726f6a;
+}
+
+.sidebar .facet-color[data-facet-value="Birch"] {
+    background-color: #726f6a;
+}
+
+.sidebar .facet-color[data-facet-value="Dark brown"] {
+    background-color: #74523e;
+}
+
+.sidebar .facet-color[data-facet-value="High gloss gray"] {
+    background-color: #e5e5e5;
+}
+
+.sidebar .facet-color[data-facet-value="Gray/white"] {
+    background-color: #e5e5e5;
+}
+
+.sidebar .facet-color[data-facet-value="Red/white"] {
+    background-color: #fa757b;
+}
+
+.sidebar .facet-color[data-facet-value="Clear"] {
+    background-color: #d5dae0;
+}
+
+.sidebar .facet-color[data-facet-value="Matte black"] {
+    background-color: #616872;
+}
+
+.sidebar .facet-color[data-facet-value="Matte white"] {
+    background-color: #dcdbd7;
+}
+
+.sidebar .facet-color[data-facet-value="White stained oak effect"] {
+    background-color: #e7e8e0;
+}
+
+.sidebar .ais-price-ranges--form {
+    margin-top: 8px;
+}
+
+.sidebar .ais-price-ranges--currency {
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.sidebar .ais-price-ranges--button {
+    display: block;
+    float: right;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    margin-left: 4px;
+    font-size: 10px;
+    line-height: 20px;
+    border: solid 1px #888;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #eee;
+}
+
+
+
+.results-wrapper {
+    padding: 70px 10px 10px 240px;
+}
+
+#results-topbar {
+    display: flex;
+    justify-content: space-between;
+    line-height: 22px;
+    margin: 0.5rem 0;
+}
+
+#results-topbar .sort-by {
+    display: flex;
+    align-items: center;
+}
+
+#results-topbar p {
+    font-weight: 400;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.5rem;
+}
+
+#results-topbar #sort-by-selector {
+    display: inline-block;
+}
+
+
+
+#stats {
+    font-size: 0.8em;
+}

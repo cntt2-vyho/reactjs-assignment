@@ -1,5 +1,3 @@
-import _ from "lodash";
-
 export const ratings = (rates) => {
 
     if (rates <= 5) {
@@ -15,11 +13,6 @@ export const ratings = (rates) => {
 
 }
 
-export const splitString = (string) => {
-    var arr = string.split(' > ');
-    return arr.slice(-1)[0];
-}
-
 export const getTotalPage = (totalItem, limit) => {
 
     var whole = (totalItem - totalItem % limit) / limit;
@@ -33,43 +26,52 @@ export const getTotalPage = (totalItem, limit) => {
     return totalPage;
 }
 
-export const getLastObject = (obj) => {
-    if (obj) {
-        var last = obj[Object.keys(obj)[Object.keys(obj).length - 1]]
-
-        return last;
-    }
-
-}
 const checkAdd = (array) => {
     var result = array.reduce((acc, o) => (acc[o.name] = (acc[o.name] || 0) + 1, acc), {});
     return result
 }
 
 const sort = (arr) => {
-
     const sortable = Object.entries(arr)
         .sort(([, a], [, b]) => b - a)
         .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
-
     return sortable;
 }
 
+
+export const renderLvl1 = (array) => {
+
+    let listCategories = {};
+
+    for (let category of array) {
+        if (!listCategories[category.hierarchicalCategories.lvl0]) {
+            listCategories[category.hierarchicalCategories.lvl0] = {
+                name: category.hierarchicalCategories.lvl0,
+                lvl1: {},
+            };
+        }
+
+        if (!category.hierarchicalCategories.lvl1) continue;
+
+        let categoryLvl1 = category.hierarchicalCategories.lvl1.split(" > ")[1];
+
+        listCategories[category.hierarchicalCategories.lvl0].lvl1[
+            categoryLvl1
+        ] = categoryLvl1;
+    }
+    return listCategories;
+
+}
+
 export const customListCategories = (array) => {
-    getLastObject();
-    var listCategories = [];
+
     var listType = [];
     var listBrand = [];
     var ratings = [];
     var price_range = [];
 
     array.map((value, key) => {
-        if (!listCategories.some(val => _.isEqual(val, value.hierarchicalCategories))) {
-
-            listCategories = [...listCategories,
-            value.hierarchicalCategories
-            ];
-        }
+        
         listType = [...listType,
         {
             name: value.type,
@@ -92,6 +94,7 @@ export const customListCategories = (array) => {
         }];
     })
 
+    var listCategories = renderLvl1(array);
     var listTypes = sort(checkAdd(listType))
     var listBrands = sort(checkAdd(listBrand))
     var rate = sort(checkAdd(ratings))

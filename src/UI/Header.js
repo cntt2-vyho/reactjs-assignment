@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { FilterContext } from '../App';
 
-const Header = (props) => {
+const Header = () => {
+
+    const { filterDispatch } = useContext(FilterContext);
 
     const [search, setSearch] = useState('');
 
     const isChange = (e) => {
-        setSearch(e.target.value)
+        if (e.target.value !== search) {
+            setSearch(e.target.value);
+            filterDispatch({ type: "FILTER_BY_SEARCH_NAME", payload: e.target.value })
+        }
+    }
+
+    const clearSearch = () => {
+        setSearch('');
+        filterDispatch({ type: "FILTER_BY_SEARCH_NAME", payload: '' })
     }
 
     return (
@@ -18,7 +29,7 @@ const Header = (props) => {
                 <div className="header-search">
                     <input type="text" className="header-search__input" placeholder="Search a product" onChange={e => isChange(e)} value={search} name="search" />
                     <button className="header-search__button">
-                        <i className="fa fa-search" />
+                        {!search ? <i className="fa fa-search" /> : <i className="fa fa-times" onClick={() => clearSearch()} />}
                     </button>
                 </div>
             </div>

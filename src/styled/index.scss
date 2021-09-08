@@ -1,6 +1,7 @@
 @import "./header";
 @import "./sidebar";
 @import "./content";
+@import "./content";
 
 * {
     box-sizing: border-box;
@@ -43,6 +44,14 @@
 .sidebar .facet-item.active,
 .sidebar a.active {
     font-weight: 700;
+}
+
+.facet-item {
+    cursor: pointer;
+    &:hover {
+        color: #b32500 !important;
+        text-decoration: none !important;
+    }
 }
 
 .sidebar .facet-item input,
@@ -232,8 +241,6 @@
     background-color: #eee;
 }
 
-
-
 .results-wrapper {
     padding: 70px 10px 10px 240px;
 }
@@ -262,8 +269,20 @@
     display: inline-block;
 }
 
-
-
 #stats {
     font-size: 0.8em;
+}
+.ais-hierarchical-menu--item__active {
+    .facet-item.active {
+        font-weight: bolder;
+    }
+}
+
+.ais-hierarchical-menu--item {
+    .facet-item.active {
+        cursor: pointer;
+        &:hover {
+            color: #b32500;
+        }
+    }
 }

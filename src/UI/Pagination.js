@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { connect } from 'react-redux';
 
-const Paginations = (props) => {
+import { ProductContext, FilterContext } from '../App';
 
+const Paginations = () => {
+
+    const { products } = useContext(ProductContext);
+    const { filterDispatch } = useContext(FilterContext);
 
     const handlePageClick = (e) => {
+
         const selectedPage = e.selected + 1;
-        props.setPage(selectedPage)
+        console.log("selectedPage: ", selectedPage);
+        filterDispatch({ type: "FILTER_BY_PAGE", payload: selectedPage });
     };
 
     return (
@@ -18,7 +23,7 @@ const Paginations = (props) => {
                     nextLabel={">"}
                     breakLabel={"..."}
                     breakClassName={"break-me"}
-                    pageCount={props.totalPage}
+                    pageCount={products.totalPage}
                     marginPagesDisplayed={2}
                     pageRangeDisplayed={3}
                     onPageChange={handlePageClick}
@@ -38,14 +43,5 @@ const Paginations = (props) => {
     );
 
 }
-const mapStateToProps = (state, ownProps) => {
-    return {
-        totalPage: state.totalPage
-    }
-}
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-        
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Paginations)
+
+export default Paginations;
